@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/reset.css">
+	</head>
+	<body>
+		<div class="box">
+			<form class="btn1">
+				<input type="button" value="顺序播放" id="order">
+				<input type="button" value="循环播放" id="loop">
+			</form>
+			<p id="btnDes">图片顺序播放</p>
+			<img src="img/1a.jpg" id="pic">
+			<p id="num">1/5</p>
+			<form>
+				<input type="button" value="上一张" id="forward">
+				<input type="button" value="下一张" id="next">
+			</form>
+			<p id="p">这是第一张图片</p>
+		</div>
+		<script>
+			var picArray=["img/1a.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg"];
+			var wordArray=["这是第一张图片","这是第二张图片","这是第三张图片","这是第四张图片","这是第五张图片"];
+			var forward = document.getElementById("forward");
+			var next = document.getElementById("next");
+			var pic = document.getElementById("pic");
+			var p = document.getElementById("p");
+			var num = document.getElementById("num");
+			var loop = document.getElementById("loop");
+			var order =document.getElementById("order");
+			var numI = 0;
+			var off=true;
+			order.onclick = function(){
+				off=true;
+			}
+			loop.onclick = function(){
+				off=false;
+			}
+			next.onclick=function(){
+				numI++;
+				if (numI > picArray.length-1 ) {
+					if ( off ) {
+						numI = picArray.length-1;
+						alert("这是最后一张了");
+					}else{
+						numI=0;
+					}
+				}
+				pay();
+			}
+			forward.onclick=function(){
+				numI--;
+				if (numI<0) {
+					if ( off ) {
+						numI = 0;
+						alert("这是第一张了");
+					}else{
+						numI = picArray.length-1
+					}
+				}
+				pay();
+			}
+			function pay(){
+				pic.src = picArray[numI];
+				p.innerHTML = wordArray[numI];
+				num.innerHTML=numI+1+"/5";
+			}
+		</script>
+	</body>
+</html>
