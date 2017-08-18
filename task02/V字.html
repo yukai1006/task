@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#content{
+				width: 500px;
+				height: 500px;
+				border: 1px solid #000;
+				position: relative;
+			}
+			#content div{
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				background: pink;
+				font-size: 30px;
+				line-height: 100px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="click" id="btn" />
+		<div id="content"></div>
+		<script>
+		var btn = document.getElementById("btn");
+		var content = document.getElementById("content");
+		var l=0,t=0;
+
+		btn.onclick = function(){
+			for (var i = 0; i < 5; i++) {
+				l=i*100;
+				t=i*100;
+				if (i>2) {
+					t=400-i*100;
+				}
+				content.innerHTML += '<div style="left:'+l+'px;top:'+t+'px;">'+'</div>'
+			}
+		}
+
+		</script>
+	</body>
+</html>
