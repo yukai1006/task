@@ -33,6 +33,23 @@
 			var order =document.getElementById("order");
 			var numI = 0;
 			var off=true;
+
+			////////////////////////////////////////////////////////////////////////
+			//自动切换
+
+			var timer = null;
+			function play(){
+				timer = setInterval(function(){
+					numI++;
+					numI%=picArray.length;
+					pay();
+				},3000)
+			};
+			
+
+			///////////////////////////////////////////////////////////////////////
+
+
 			order.onclick = function(){
 				off=true;
 			}
@@ -68,6 +85,11 @@
 				p.innerHTML = wordArray[numI];
 				num.innerHTML=numI+1+"/5";
 			}
+
+
+
+
+
 		</script>
 	</body>
 </html>
