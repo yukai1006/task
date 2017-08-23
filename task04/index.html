@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+<style media="screen">
+#div01 div{
+	display: none;
+}
+</style>
+<ul id="nav">
+	<li>tab01</li>
+	<li>tab02</li>
+	<li>tab03</li>
+	<li>tab04</li>
+	<div class="clear"></div>
+</ul>
+
+<div id="div01">
+	<div class="">aaaaa</div>
+	<div class="">bbbbb</div>
+	<div class="">ccccc</div>
+	<div class="">ddddd</div>
+</div>
+
+
+<script>
+
+var div01 = document.getElementById("div01");
+var div = div01.getElementsByTagName("div");
+var nav = document.getElementById("nav");
+var li = nav.getElementsByTagName("li");
+
+
+for (var i = 0; i < li.length; i++) {
+	li[i].index=i;
+	li[i].onmouseover = function(){
+			console.log(this.index);
+			for (var i = 0; i < div.length; i++) {
+				div[i].style.display="none";
+				div[this.index].style.display="block";
+			}
+	};
+}
+
+
+
+</script>
+</body>
+</html>
